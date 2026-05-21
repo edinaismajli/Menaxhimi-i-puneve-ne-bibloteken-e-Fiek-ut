@@ -68,3 +68,39 @@ public class DatabaseInitializer {
             statement.executeUpdate();
         }
     }
+
+    private static void executeSqlFile(Connection connection, String path) throws Exception {
+        InputStream inputStream = DatabaseInitializer.class.getResourceAsStream(path);
+
+        if (inputStream == null) {
+            System.out.println("Migration not found: " + path);
+            return;
+        }
+
+        StringBuilder sql = new StringBuilder();
+
+        try (
+                BufferedReader reader = new BufferedReader(
+                        new InputStreamReader(inputStream, StandardCharsets.UTF_8)
+                )
+        ) {
+            String line;
+
+            while ((line = reader.readLine()) != null) {
+                sql.append(line).append("\n");
+            }
+        }
+
+        String[] statements = sql.toString().split(";");
+
+        for (String statementSql : statements) {
+            String trimmed = statementSql.trim();
+
+            if (!trimmed.isEmpty()) {
+                try (Statement statement = connection.createStatement()) {
+                    statement.execute(trimmed);
+                }
+            }
+        }
+    }
+}
