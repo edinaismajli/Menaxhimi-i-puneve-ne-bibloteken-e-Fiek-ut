@@ -44,4 +44,14 @@ public class LoansController {
 
     private final LoanService loanService = new LoanService();
 
+    @FXML
+    public void initialize() {
+        idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
+        bookIdColumn.setCellValueFactory(new PropertyValueFactory<>("bookId"));
+        memberIdColumn.setCellValueFactory(new PropertyValueFactory<>("memberId"));
+        loanDateColumn.setCellValueFactory(new PropertyValueFactory<>("loanDate"));
+        dueDateColumn.setCellValueFactory(new PropertyValueFactory<>("dueDate"));
+        returnDateColumn.setCellValueFactory(new PropertyValueFactory<>("returnDate"));
+        statusColumn.setCellValueFactory(new PropertyValueFactory<>("status"));
+
     }
