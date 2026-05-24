@@ -54,4 +54,75 @@ public class LoansController {
         returnDateColumn.setCellValueFactory(new PropertyValueFactory<>("returnDate"));
         statusColumn.setCellValueFactory(new PropertyValueFactory<>("status"));
 
+        MenuItem returnItem = new MenuItem("Return selected loan");
+        returnItem.setOnAction(event -> returnLoan());
+
+        ContextMenu contextMenu = new ContextMenu(returnItem);
+        loansTable.setContextMenu(contextMenu);
+
+        loadLoans();
     }
+
+    @FXML
+    private void addLoan() {
+        try {
+            LoanDto dto = readLoanDto();
+            loanService.create(dto);
+            clearFields();
+            loadLoans();
+        } catch (Exception e) {
+            showWarning(e.getMessage());
+        }
+    }
+
+    @FXML
+    private void returnLoan() {
+        Loan selected = loansTable.getSelectionModel().getSelectedItem();
+
+        if (selected == null) {
+            showWarning("Select a loan first.");
+            return;
+        }
+
+        loanService.markReturned(selected.getId());
+        loadLoans();
+    }
+
+    private void loadLoans() {
+        loansTable.setItems(
+                FXCollections.observableArrayList(loanService.findAll())
+        );
+    }
+
+    private LoanDto readLoanDto() {
+        int bookId;
+        int memberId;
+
+        try {
+            bookId = Integer.parseInt(bookIdField.getText());
+            memberId = Integer.parseInt(memberIdField.getText());
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("Book ID and Member ID must be numbers.");
+        }
+
+        return new LoanDto(
+                bookId,
+                memberId,
+                dueDatePicker.getValue()
+        );
+    }
+
+    private void clearFields() {
+        bookIdField.clear();
+        memberIdField.clear();
+        dueDatePicker.setValue(null);
+    }
+
+    private void showWarning(String message) {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("Loans");
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+}
