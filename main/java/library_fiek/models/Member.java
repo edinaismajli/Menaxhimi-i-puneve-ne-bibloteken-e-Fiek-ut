@@ -27,3 +27,19 @@ public class Member {
     public void setPhone(String phone) { this.phone = phone; }
     public void setMemberType(String memberType) { this.memberType = memberType; }
 }
+main/java/library_fiek/dto/MemberDto.java
+
+package library_fiek.dto;
+
+public class MemberDto {
+    private String fullName;
+    private String email;
+    private String phone;
+    private String memberType;
+
+    public MemberDto(String fullName, String email, String phone, String memberType) {
+        this.fullName = fullName;
+        this.email = email;
+        this.phone = phone;
+        this.memberType = memberType;
+    }
