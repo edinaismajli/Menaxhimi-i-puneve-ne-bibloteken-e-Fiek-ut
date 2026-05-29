@@ -148,6 +148,50 @@ public class MemberRepository {
                 Connection connection = DatabaseService.getConnection();
                 PreparedStatement statement = connection.prepareStatement(sql)
         ) {
+            String value = "%" + keyword + "%";
+
+            statement.setString(1, value);
+            statement.setString(2, value);
+            statement.setString(3, value);
+            statement.setString(4, value);
+
+            try (ResultSet resultSet = statement.executeQuery()) {
+                while (resultSet.next()) {
+                    members.add(mapMember(resultSet));
+                }
+            }
+        }catch (SQLException e) {
+            System.out.println("Search members failed: " + e.getMessage());
+        }
+
+        return members;
+    }
+
+    public void insert(Member member) {
+        String sql = """
+                INSERT INTO members(full_name, email, phone, member_type)
+                VALUES (?, ?, ?, ?)
+                """;
+
+        try (
+                Connection connection = DatabaseService.getConnection();
+                PreparedStatement statement = connection.prepareStatement(sql)
+        ) {
+            statement.setString(1, member.getFullName());
+            statement.setString(2, member.getEmail());
+            statement.setString(3, member.getPhone());
+            statement.setString(4, member.getMemberType());
+
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println("Insert member failed: " + e.getMessage());
+        }
+    }
+
+
+
+
+
 
 
 
