@@ -43,6 +43,39 @@ public class MainController {
         setStatus("Loans opened");
     }
 
+    @FXML
+    private void openDatabase() {
+        SceneManager.loadCenter(AppNavigator.DATABASE);
+        setStatus("Database opened");
+    }
+
+    @FXML
+    private void openHelp() {
+        SceneManager.loadCenter(AppNavigator.HELP);
+        setStatus("Help opened");
+    }
+
+    @FXML
+    private void openSettings() {
+        SceneManager.loadCenter(AppNavigator.SETTINGS);
+        setStatus("Settings opened");
+    }
+
+    @FXML
+    private void setAlbanianLanguage() {
+        setStatus("Gjuha u ndryshua ne shqip");
+    }
+
+    @FXML
+    private void setEnglishLanguage() {
+        setStatus("Language changed to English");
+    }
+
+    @FXML
+    private void exitApp() {
+        System.exit(0);
+    }
+
     private void setStatus(String text) {
         statusLabel.setText(text);
     }
