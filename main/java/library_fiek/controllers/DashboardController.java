@@ -49,7 +49,8 @@ public class DashboardController {
         series.setName("Huazimet");
         series.getData().setAll(dashboardService.getMonthlyLoanData());
 
-        monthlyLoansChart.getData().setAll(series);
+        monthlyLoansChart.getData().clear();
+        monthlyLoansChart.getData().add(series);
 
         aiRecommendationLabel.setText(aiRecommendationService.getRecommendation());
     }
