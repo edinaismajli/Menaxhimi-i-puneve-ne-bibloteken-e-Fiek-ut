@@ -1,4 +1,4 @@
-﻿package library_fiek.services;
+package library_fiek.services;
 
 import java.util.Locale;
 import java.util.ResourceBundle;

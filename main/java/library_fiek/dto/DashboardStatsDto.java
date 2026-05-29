@@ -1,4 +1,4 @@
-﻿package library_fiek.dto;
+package library_fiek.dto;
 
 public class DashboardStatsDto {
     private int totalBooks;
