@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox spacing="16"
+      styleClass="page"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="library_fiek.controllers.DashboardController">
+
+    <Label text="Dashboard" style="-fx-font-size: 22px; -fx-font-weight: bold;"/>
+
+    <HBox spacing="12">
+        <VBox styleClass="stat-card">
+            <Label text="Total Books"/>
+            <Label fx:id="totalBooksLabel" styleClass="stat-value"/>
+        </VBox>
+
+        <VBox styleClass="stat-card">
+            <Label text="Members"/>
+            <Label fx:id="totalMembersLabel" styleClass="stat-value"/>
+        </VBox>
+
+        <VBox styleClass="stat-card">
+            <Label text="Active Loans"/>
+            <Label fx:id="activeLoansLabel" styleClass="stat-value"/>
+        </VBox>
+
+        <VBox styleClass="stat-card">
+            <Label text="Overdue"/>
+            <Label fx:id="overdueLoansLabel" styleClass="stat-value"/>
+        </VBox>
+    </HBox>
+
+    <GridPane hgap="16" vgap="16">
+        <PieChart fx:id="categoryChart"
+                  title="Books by Category"
+                  GridPane.rowIndex="0"
+                  GridPane.columnIndex="0"/>
+
+        <BarChart fx:id="monthlyLoansChart"
+                  title="Monthly Loans"
+                  GridPane.rowIndex="0"
+                  GridPane.columnIndex="1">
+            <xAxis>
+                <CategoryAxis label="Month"/>
+            </xAxis>
+            <yAxis>
+                <NumberAxis label="Loans"/>
+            </yAxis>
+        </BarChart>
+    </GridPane>
+
+    <VBox styleClass="info-panel">
+        <Label text="AI Recommendation"/>
+        <Label fx:id="aiRecommendationLabel"/>
+    </VBox>
+
+</VBox>

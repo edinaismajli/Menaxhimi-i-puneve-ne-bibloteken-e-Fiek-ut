@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox fx:id="settingsRoot"
+      spacing="12"
+      styleClass="page"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="library_fiek.controllers.SettingsController">
+
+    <Label text="Settings" style="-fx-font-size: 22px; -fx-font-weight: bold;"/>
+
+    <VBox spacing="6" styleClass="info-panel">
+        <Label text="Language"/>
+        <RadioButton fx:id="albanianRadio" text="Shqip"/>
+        <RadioButton fx:id="englishRadio" text="English"/>
+    </VBox>
+
+    <VBox spacing="6" styleClass="info-panel">
+        <Label text="Accessibility"/>
+        <CheckBox fx:id="largeTextCheckBox" text="Large text"/>
+    </VBox>
+
+    <Button text="Save Settings" onAction="#saveSettings"/>
+
+</VBox>
