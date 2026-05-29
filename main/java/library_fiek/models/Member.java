@@ -1,5 +1,8 @@
 package library_fiek.models;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Member {
     private int id;
     private String fullName;
@@ -28,15 +31,24 @@ public class Member {
     public void setMemberType(String memberType) { this.memberType = memberType; }
     }
 
-main/java/library_fiek/dto/MemberDto.java
 
-package library_fiek.dto;
 
-public class MemberDto {
-    private String fullName;
-    private String email;
-    private String phone;
-    private String memberType;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
