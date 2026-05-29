@@ -1,4 +1,4 @@
-﻿package library_fiek.controllers;
+package library_fiek.controllers;
 
 import library_fiek.services.AccessibilityService;
 import library_fiek.services.LanguageService;

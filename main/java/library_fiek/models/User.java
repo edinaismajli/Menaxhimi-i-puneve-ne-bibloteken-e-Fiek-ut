@@ -1,4 +1,4 @@
-﻿package library_fiek.models;
+package library_fiek.models;
 
 public class User {
     private int id;

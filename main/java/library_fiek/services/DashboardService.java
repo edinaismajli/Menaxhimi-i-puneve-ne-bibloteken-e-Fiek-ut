@@ -1,4 +1,4 @@
-﻿package library_fiek.services;
+package library_fiek.services;
 
 import library_fiek.models.DashboardStats;
 import javafx.scene.chart.PieChart;
