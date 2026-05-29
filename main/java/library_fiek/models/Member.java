@@ -1,5 +1,8 @@
 package library_fiek.models;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Member {
     private int id;
     private String fullName;
@@ -118,9 +121,37 @@ public class MemberRepository {
         String sql = "SELECT * FROM members ORDER BY id DESC";
         List<Member> members = new ArrayList<>();
 
-        try(
+        try (
+                Connection connection = DatabaseService.getConnection();
+                PreparedStatement statement = connection.prepareStatement(sql);
+                ResultSet resultSet = statement.executeQuery()
+        ) {
+            while (resultSet.next()) {
+                members.add(mapMember(resultSet));
+            }
+        } catch (SQLException e) {
+            System.out.println("Find members failed: " + e.getMessage());
+        }
 
-                )
+        return members;
+    }
+
+    public List<Member> search(String keyword) {
+        String sql = """
+                SELECT * FROM members
+                WHERE full_name LIKE ? OR email LIKE ? OR phone LIKE ? OR member_type LIKE ?
+                ORDER BY id DESC
+                """;
+        List<Member> members = new ArrayList<>();
+
+        try (
+                Connection connection = DatabaseService.getConnection();
+                PreparedStatement statement = connection.prepareStatement(sql)
+        ) {
+
+
+
+
 
 
 
