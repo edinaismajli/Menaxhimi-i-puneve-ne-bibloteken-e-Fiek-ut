@@ -40,13 +40,27 @@ public class MemberDto {
 
 
     public MemberDto(String fullName, String email, String phone, String memberType) {
-    this.fullName = fullName;
-    this.email = email;
-    this.phone = phone;
-    this.memberType = memberType;
+        this.fullName = fullName;
+        this.email = email;
+        this.phone = phone;
+        this.memberType = memberType
     }
 
+    public String getFullName() {
+        return fullName;
+    }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public String getMemberType() {
+        return memberType;
+    }
 }
 
 
