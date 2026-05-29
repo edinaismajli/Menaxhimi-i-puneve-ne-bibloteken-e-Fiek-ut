@@ -27,3 +27,4 @@ public class Member {
     public void setPhone(String phone) { this.phone = phone; }
     public void setMemberType(String memberType) { this.memberType = memberType; }
 }
+
