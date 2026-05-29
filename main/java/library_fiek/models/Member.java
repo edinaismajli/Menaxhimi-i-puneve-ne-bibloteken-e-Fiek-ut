@@ -63,6 +63,25 @@ public class MemberDto {
     }
 }
 
+main/java/library_fiek/enums/MemberType.java
+
+package library_fiek.enums;
+
+public enum MemberType {
+    STUDENT,
+    STAFF
+}
+
+main/java/library_fiek/mappers/MemberMapper.java
+
+package library_fiek.mappers;
+
+import library_fiek.dto.MemberDto;
+import library_fiek.models.Member;
+
+
+
+
 
 
 
