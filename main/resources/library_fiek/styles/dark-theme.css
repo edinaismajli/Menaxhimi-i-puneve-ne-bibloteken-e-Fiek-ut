@@ -1,0 +1,46 @@
+﻿.root {
+    -fx-background-color: #1f2329;
+    -fx-font-family: "Segoe UI", Arial, sans-serif;
+    -fx-font-size: 13px;
+}
+
+.page {
+    -fx-padding: 18;
+    -fx-background-color: #1f2329;
+}
+
+.label {
+    -fx-text-fill: #f5f7fb;
+}
+
+.button {
+    -fx-background-color: #3b4252;
+    -fx-text-fill: white;
+    -fx-cursor: hand;
+}
+
+.text-field,
+.text-area,
+.combo-box {
+    -fx-background-color: #2e3440;
+    -fx-text-fill: white;
+}
+
+.table-view {
+    -fx-background-color: #2e3440;
+}
+
+.stat-card,
+.info-panel {
+    -fx-padding: 12;
+    -fx-background-color: #2e3440;
+    -fx-border-color: #4c566a;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+}
+
+.stat-value {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #88c0d0;
+}
