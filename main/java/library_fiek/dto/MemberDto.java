@@ -12,7 +12,7 @@ public class MemberDto {
         this.fullName = fullName;
         this.email = email;
         this.phone = phone;
-        this.memberType = memberType
+        this.memberType = memberType;
     }
 
     public String getFullName() {
