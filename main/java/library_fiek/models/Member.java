@@ -28,3 +28,4 @@ public class Member {
     public void setMemberType(String memberType) { this.memberType = memberType; }
 }
 
+
