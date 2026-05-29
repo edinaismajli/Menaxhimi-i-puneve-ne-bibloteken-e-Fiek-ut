@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane fx:id="mainPane"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="library_fiek.controllers.MainController">
+
+    <top>
+        <VBox>
+            <MenuBar>
+                <Menu text="File">
+                    <MenuItem text="Exit" onAction="#exitApp"/>
+                </Menu>
+
+                <Menu text="Manage">
+                    <MenuItem text="Books" onAction="#openBooks"/>
+                    <MenuItem text="Members" onAction="#openMembers"/>
+                    <MenuItem text="Loans" onAction="#openLoans"/>
+                </Menu>
+
+                <Menu text="Language">
+                    <MenuItem text="Shqip" onAction="#setAlbanianLanguage"/>
+                    <MenuItem text="English" onAction="#setEnglishLanguage"/>
+                </Menu>
+
+                <Menu text="View">
+                    <MenuItem text="Dashboard" onAction="#openDashboard"/>
+                    <MenuItem text="Database" onAction="#openDatabase"/>
+                </Menu>
+
+                <Menu text="Help">
+                    <MenuItem text="Help" onAction="#openHelp"/>
+                </Menu>
+            </MenuBar>
+
+            <ToolBar>
+                <Button text="Dashboard" onAction="#openDashboard"/>
+                <Button text="Books" onAction="#openBooks"/>
+                <Button text="Members" onAction="#openMembers"/>
+                <Button text="Loans" onAction="#openLoans"/>
+                <Button text="Database" onAction="#openDatabase"/>
+                <Button text="Settings" onAction="#openSettings"/>
+            </ToolBar>
+        </VBox>
+    </top>
+
+    <left>
+        <VBox spacing="8" styleClass="sidebar">
+            <Button text="Dashboard" maxWidth="Infinity" onAction="#openDashboard"/>
+            <Button text="Books" maxWidth="Infinity" onAction="#openBooks"/>
+            <Button text="Members" maxWidth="Infinity" onAction="#openMembers"/>
+            <Button text="Loans" maxWidth="Infinity" onAction="#openLoans"/>
+            <Button text="Database" maxWidth="Infinity" onAction="#openDatabase"/>
+            <Button text="Help" maxWidth="Infinity" onAction="#openHelp"/>
+        </VBox>
+    </left>
+
+    <bottom>
+        <HBox styleClass="status-bar">
+            <Label fx:id="statusLabel" text="Ready"/>
+        </HBox>
+    </bottom>
+
+</BorderPane>
