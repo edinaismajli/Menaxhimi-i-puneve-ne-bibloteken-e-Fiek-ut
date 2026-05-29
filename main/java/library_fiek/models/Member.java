@@ -26,6 +26,20 @@ public class Member {
     public void setEmail(String email) { this.email = email; }
     public void setPhone(String phone) { this.phone = phone; }
     public void setMemberType(String memberType) { this.memberType = memberType; }
-}
+    }
+
+main/java/library_fiek/dto/MemberDto.java
+
+package library_fiek.dto;
+
+public class MemberDto {
+    private String fullName;
+    private String email;
+    private String phone;
+    private String memberType;
+
+
+
+
 
 
