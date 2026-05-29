@@ -10,5 +10,10 @@
     </content>
     <orderEntry type="jdk" jdkName="openjdk-25" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Maven: org.openjfx:javafx-controls:21.0.2" level="project" />
+    <orderEntry type="library" name="Maven: org.openjfx:javafx-fxml:21.0.2" level="project" />
+    <orderEntry type="library" name="Maven: org.openjfx:javafx-base:21.0.2" level="project" />
+    <orderEntry type="library" name="Maven: org.openjfx:javafx-graphics:21.0.2" level="project" />
+    <orderEntry type="library" name="Maven: org.xerial:sqlite-jdbc:3.45.3.0" level="project" />
   </component>
 </module>
