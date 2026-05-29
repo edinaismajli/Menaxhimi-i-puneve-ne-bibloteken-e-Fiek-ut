@@ -39,6 +39,17 @@ public class MemberDto {
     private String memberType;
 
 
+    public MemberDto(String fullName, String email, String phone, String memberType) {
+    this.fullName = fullName;
+    this.email = email;
+    this.phone = phone;
+    this.memberType = memberType;
+    }
+
+
+}
+
+
 
 
 
