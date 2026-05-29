@@ -102,6 +102,29 @@ public class MemberMapper {
 }
 
 
+main/java/library_fiek/repositories/MemberRepository.java
+
+package library_fiek.repositories;
+
+import library_fiek.models.Member;
+import library_fiek.services.DatabaseService;
+
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
+
+public class MemberRepository {
+    public List<Member> findAll() {
+        String sql = "SELECT * FROM members ORDER BY id DESC";
+        List<Member> members = new ArrayList<>();
+
+        try(
+
+                )
+
+
+
+
 
 
 
