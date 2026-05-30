@@ -1,40 +1,40 @@
 CREATE TABLE IF NOT EXISTS users (
-                                     id INTEGER PRIMARY KEY AUTOINCREMENT,
-                                     username VARCHAR(50) NOT NULL UNIQUE,
-                                     password VARCHAR(255) NOT NULL,
-                                     role VARCHAR(30) NOT NULL DEFAULT 'LIBRARIAN',
-                                     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+id INTEGER PRIMARY KEY AUTOINCREMENT,
+username VARCHAR(50) NOT NULL UNIQUE,
+password VARCHAR(255) NOT NULL,
+role VARCHAR(30) NOT NULL DEFAULT 'LIBRARIAN',
+created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE IF NOT EXISTS books (
-                                     id INTEGER PRIMARY KEY AUTOINCREMENT,
-                                     title VARCHAR(150) NOT NULL,
-                                     author VARCHAR(120) NOT NULL,
-                                     category VARCHAR(80) NOT NULL,
-                                     isbn VARCHAR(30) UNIQUE,
-                                     quantity INTEGER NOT NULL DEFAULT 1,
-                                     available_quantity INTEGER NOT NULL DEFAULT 1,
-                                     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+id INTEGER PRIMARY KEY AUTOINCREMENT,
+title VARCHAR(150) NOT NULL,
+author VARCHAR(120) NOT NULL,
+category VARCHAR(80) NOT NULL,
+isbn VARCHAR(30) UNIQUE,
+quantity INTEGER NOT NULL DEFAULT 1,
+available_quantity INTEGER NOT NULL DEFAULT 1,
+created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE IF NOT EXISTS members (
-                                       id INTEGER PRIMARY KEY AUTOINCREMENT,
-                                       full_name VARCHAR(120) NOT NULL,
-                                       email VARCHAR(120) UNIQUE,
-                                       phone VARCHAR(30),
-                                       member_type VARCHAR(30) NOT NULL,
-                                       created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+id INTEGER PRIMARY KEY AUTOINCREMENT,
+full_name VARCHAR(120) NOT NULL,
+email VARCHAR(120) UNIQUE,
+phone VARCHAR(30),
+member_type VARCHAR(30) NOT NULL,
+created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE IF NOT EXISTS loans (
-                                     id INTEGER PRIMARY KEY AUTOINCREMENT,
-                                     book_id INTEGER NOT NULL,
-                                     member_id INTEGER NOT NULL,
-                                     loan_date DATE NOT NULL,
-                                     due_date DATE NOT NULL,
-                                     return_date DATE,
-                                     status VARCHAR(30) NOT NULL DEFAULT 'ACTIVE',
-                                     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-                                     FOREIGN KEY (book_id) REFERENCES books(id),
-                                     FOREIGN KEY (member_id) REFERENCES members(id)
+id INTEGER PRIMARY KEY AUTOINCREMENT,
+book_id INTEGER NOT NULL,
+member_id INTEGER NOT NULL,
+loan_date DATE NOT NULL,
+due_date DATE NOT NULL,
+return_date DATE,
+status VARCHAR(30) NOT NULL DEFAULT 'ACTIVE',
+created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+FOREIGN KEY (book_id) REFERENCES books(id),
+FOREIGN KEY (member_id) REFERENCES members(id)
 );
