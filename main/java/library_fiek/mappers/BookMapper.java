@@ -10,11 +10,13 @@ public class BookMapper {
         }
 
         return new BookDto(
+                book.getId(),
                 book.getTitle(),
                 book.getAuthor(),
                 book.getCategory(),
                 book.getIsbn(),
-                book.getQuantity()
+                book.getQuantity(),
+                book.getAvailableQuantity()
         );
     }
 
@@ -24,13 +26,29 @@ public class BookMapper {
         }
 
         return new Book(
-                0,
+                dto.getId(),
                 dto.getTitle(),
                 dto.getAuthor(),
                 dto.getCategory(),
                 dto.getIsbn(),
                 dto.getQuantity(),
-                dto.getQuantity()
+                dto.getAvailableQuantity()
+        );
+    }
+
+    public Book toModel(int id, BookDto dto) {
+        if (dto == null) {
+            return null;
+        }
+
+        return new Book(
+                id,
+                dto.getTitle(),
+                dto.getAuthor(),
+                dto.getCategory(),
+                dto.getIsbn(),
+                dto.getQuantity(),
+                dto.getAvailableQuantity()
         );
     }
 }
