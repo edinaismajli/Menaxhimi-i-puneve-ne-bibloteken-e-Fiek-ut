@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane fx:id="mainPane"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="library_fiek.controllers.MainController">
+
+    <top>
+        <VBox>
+            <MenuBar>
+                <Menu fx:id="fileMenu" text="File">
+                    <MenuItem fx:id="exitMenuItem" text="Exit" onAction="#exitApp"/>
+                </Menu>
+
+                <Menu fx:id="manageMenu" text="Manage">
+                    <MenuItem fx:id="dashboardMenuItem" text="Dashboard" onAction="#openDashboard"/>
+                    <MenuItem fx:id="booksMenuItem" text="Books" onAction="#openBooks"/>
+                    <MenuItem fx:id="membersMenuItem" text="Members" onAction="#openMembers"/>
+                    <MenuItem fx:id="loansMenuItem" text="Loans" onAction="#openLoans"/>
+                    <MenuItem fx:id="databaseMenuItem" text="Database" onAction="#openDatabase"/>
+                    <MenuItem fx:id="settingsMenuItem" text="Settings" onAction="#openSettings"/>
+                </Menu>
+
+                <Menu fx:id="languageMenu" text="Language">
+                    <MenuItem text="Shqip" onAction="#setAlbanianLanguage"/>
+                    <MenuItem text="English" onAction="#setEnglishLanguage"/>
+                </Menu>
+
+                <Menu fx:id="helpMenu" text="Help">
+                    <MenuItem fx:id="helpMenuItem" text="Help" onAction="#openHelp"/>
+                </Menu>
+            </MenuBar>
+
+            <ToolBar>
+                <Button fx:id="dashboardToolbarButton" text="Dashboard" onAction="#openDashboard"/>
+                <Button fx:id="booksToolbarButton" text="Books" onAction="#openBooks"/>
+                <Button fx:id="membersToolbarButton" text="Members" onAction="#openMembers"/>
+                <Button fx:id="loansToolbarButton" text="Loans" onAction="#openLoans"/>
+                <Button fx:id="databaseToolbarButton" text="Database" onAction="#openDatabase"/>
+                <Button fx:id="helpToolbarButton" text="Help" onAction="#openHelp"/>
+            </ToolBar>
+        </VBox>
+    </top>
+
+    <left>
+        <VBox spacing="10" style="-fx-padding: 15;">
+            <Button fx:id="dashboardSideButton" text="Dashboard" onAction="#openDashboard" maxWidth="Infinity"/>
+            <Button fx:id="booksSideButton" text="Books" onAction="#openBooks" maxWidth="Infinity"/>
+            <Button fx:id="membersSideButton" text="Members" onAction="#openMembers" maxWidth="Infinity"/>
+            <Button fx:id="loansSideButton" text="Loans" onAction="#openLoans" maxWidth="Infinity"/>
+            <Button fx:id="databaseSideButton" text="Database" onAction="#openDatabase" maxWidth="Infinity"/>
+            <Button fx:id="helpSideButton" text="Help" onAction="#openHelp" maxWidth="Infinity"/>
+            <Button fx:id="settingsSideButton" text="Settings" onAction="#openSettings" maxWidth="Infinity"/>
+        </VBox>
+    </left>
+
+    <bottom>
+        <HBox spacing="8" style="-fx-padding: 8;">
+            <Label fx:id="statusPrefixLabel" text="Status:"/>
+            <Label fx:id="statusLabel" text="Ready"/>
+        </HBox>
+    </bottom>
+
+</BorderPane>

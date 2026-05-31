@@ -1,56 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 
-<VBox spacing="12"
-      styleClass="page"
-      xmlns:fx="http://javafx.com/fxml"
-      fx:controller="library_fiek.controllers.MembersController">
-
-    <Label text="Members Management" style="-fx-font-size: 22px; -fx-font-weight: bold;"/>
-
+<VBox spacing="12" styleClass="page" xmlns:fx="http://javafx.com/fxml" fx:controller="library_fiek.controllers.MembersController">
+    <Label text="%members.title" style="-fx-font-size: 22px; -fx-font-weight: bold;"/>
     <HBox spacing="8">
-        <TextField fx:id="searchField" promptText="Search by name, email, phone or type"/>
-        <Button text="Search" onAction="#searchMembers"/>
+        <TextField fx:id="searchField" promptText="%members.searchPrompt"/>
+        <Button text="%action.search" onAction="#searchMembers"/>
     </HBox>
-
     <GridPane hgap="8" vgap="8">
-        <Label text="Full name:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+        <Label text="%field.fullName" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
         <TextField fx:id="fullNameField" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
-
-        <Label text="Email:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+        <Label text="%field.email" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
         <TextField fx:id="emailField" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
-
-        <Label text="Phone:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+        <Label text="%field.phone" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
         <TextField fx:id="phoneField" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
-
-        <Label text="Type:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+        <Label text="%field.type" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
         <ComboBox fx:id="memberTypeCombo" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
     </GridPane>
-
     <HBox spacing="8">
-        <Button text="Add Member" onAction="#addMember"/>
-        <Button text="Update Member" onAction="#updateMember"/>
-        <Button text="Delete Member" onAction="#deleteMember"/>
+        <Button text="%members.add" onAction="#addMember"/>
+        <Button text="%members.update" onAction="#updateMember"/>
+        <Button text="%members.delete" onAction="#deleteMember"/>
     </HBox>
-
     <TableView fx:id="membersTable" onMouseClicked="#fillFormFromSelection">
         <columns>
-            <TableColumn fx:id="idColumn" text="ID" prefWidth="60"/>
-            <TableColumn fx:id="nameColumn" text="Full Name" prefWidth="180"/>
-            <TableColumn fx:id="emailColumn" text="Email" prefWidth="220"/>
-            <TableColumn fx:id="phoneColumn" text="Phone" prefWidth="120"/>
-            <TableColumn fx:id="typeColumn" text="Type" prefWidth="100"/>
+            <TableColumn fx:id="idColumn" text="%column.id" prefWidth="60"/>
+            <TableColumn fx:id="nameColumn" text="%field.fullName" prefWidth="180"/>
+            <TableColumn fx:id="emailColumn" text="%field.email" prefWidth="220"/>
+            <TableColumn fx:id="phoneColumn" text="%field.phone" prefWidth="120"/>
+            <TableColumn fx:id="typeColumn" text="%field.type" prefWidth="100"/>
         </columns>
     </TableView>
-
 </VBox>
-

@@ -16,6 +16,10 @@ public class LanguageService {
         return currentLanguage;
     }
 
+    public static ResourceBundle getBundle() {
+        return bundle;
+    }
+
     public static String get(String key) {
         try {
             return bundle.getString(key);

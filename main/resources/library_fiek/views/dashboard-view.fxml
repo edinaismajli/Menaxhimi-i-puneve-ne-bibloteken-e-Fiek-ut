@@ -14,51 +14,51 @@
       xmlns:fx="http://javafx.com/fxml"
       fx:controller="library_fiek.controllers.DashboardController">
 
-    <Label text="Dashboard" style="-fx-font-size: 22px; -fx-font-weight: bold;"/>
+    <Label text="%dashboard.title" style="-fx-font-size: 22px; -fx-font-weight: bold;"/>
 
     <HBox spacing="12">
         <VBox styleClass="stat-card">
-            <Label text="Total Books"/>
+            <Label text="%dashboard.totalBooks"/>
             <Label fx:id="totalBooksLabel" styleClass="stat-value"/>
         </VBox>
 
         <VBox styleClass="stat-card">
-            <Label text="Members"/>
+            <Label text="%dashboard.members"/>
             <Label fx:id="totalMembersLabel" styleClass="stat-value"/>
         </VBox>
 
         <VBox styleClass="stat-card">
-            <Label text="Active Loans"/>
+            <Label text="%dashboard.activeLoans"/>
             <Label fx:id="activeLoansLabel" styleClass="stat-value"/>
         </VBox>
 
         <VBox styleClass="stat-card">
-            <Label text="Overdue"/>
+            <Label text="%dashboard.overdue"/>
             <Label fx:id="overdueLoansLabel" styleClass="stat-value"/>
         </VBox>
     </HBox>
 
     <GridPane hgap="16" vgap="16">
         <PieChart fx:id="categoryChart"
-                  title="Books by Category"
+                  title="%dashboard.booksByCategory"
                   GridPane.rowIndex="0"
                   GridPane.columnIndex="0"/>
 
         <BarChart fx:id="monthlyLoansChart"
-                  title="Monthly Loans"
+                  title="%dashboard.monthlyLoans"
                   GridPane.rowIndex="0"
                   GridPane.columnIndex="1">
             <xAxis>
-                <CategoryAxis label="Month"/>
+                <CategoryAxis label="%dashboard.month"/>
             </xAxis>
             <yAxis>
-                <NumberAxis label="Loans"/>
+                <NumberAxis label="%loans.short"/>
             </yAxis>
         </BarChart>
     </GridPane>
 
     <VBox styleClass="info-panel">
-        <Label text="AI Recommendation"/>
+        <Label text="%dashboard.aiRecommendation"/>
         <Label fx:id="aiRecommendationLabel"/>
     </VBox>
 

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="10" style="-fx-padding: 20;" xmlns:fx="http://javafx.com/fxml" fx:controller="library_fiek.controllers.BooksController">
+    <Label text="%books.title" style="-fx-font-size: 22;"/>
+    <HBox spacing="8">
+        <TextField fx:id="searchField" promptText="%books.searchPrompt" HBox.hgrow="ALWAYS"/>
+        <Button text="%action.search" onAction="#searchBooks"/>
+    </HBox>
+    <GridPane hgap="10" vgap="10">
+        <Label text="%field.title" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+        <TextField fx:id="titleField" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+        <Label text="%field.author" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+        <TextField fx:id="authorField" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+        <Label text="%field.category" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+        <TextField fx:id="categoryField" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+        <Label text="%field.isbn" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
+        <TextField fx:id="isbnField" GridPane.rowIndex="0" GridPane.columnIndex="3"/>
+        <Label text="%field.quantity" GridPane.rowIndex="1" GridPane.columnIndex="2"/>
+        <TextField fx:id="quantityField" GridPane.rowIndex="1" GridPane.columnIndex="3"/>
+    </GridPane>
+    <HBox spacing="8">
+        <Button text="%books.add" onAction="#addBook"/>
+        <Button text="%books.update" onAction="#updateBook"/>
+        <Button text="%books.delete" onAction="#deleteBook"/>
+    </HBox>
+    <TableView fx:id="booksTable" onMouseClicked="#fillFormFromSelection" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="idColumn" text="%column.id" prefWidth="60"/>
+            <TableColumn fx:id="titleColumn" text="%field.title" prefWidth="200"/>
+            <TableColumn fx:id="authorColumn" text="%field.author" prefWidth="200"/>
+            <TableColumn fx:id="categoryColumn" text="%field.category" prefWidth="150"/>
+            <TableColumn fx:id="isbnColumn" text="%field.isbn" prefWidth="150"/>
+            <TableColumn fx:id="quantityColumn" text="%field.quantity" prefWidth="100"/>
+            <TableColumn fx:id="availableColumn" text="%field.available" prefWidth="100"/>
+        </columns>
+    </TableView>
+</VBox>
