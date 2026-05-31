@@ -4,6 +4,7 @@ import library_fiek.dto.MemberDto;
 import library_fiek.enums.MemberType;
 import library_fiek.models.Member;
 import library_fiek.services.MemberService;
+import library_fiek.services.LanguageService;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -61,7 +62,7 @@ public class MembersController {
         );
         memberTypeCombo.getSelectionModel().selectFirst();
 
-        MenuItem deleteItem = new MenuItem("Delete selected member");
+        MenuItem deleteItem = new MenuItem(LanguageService.get("context.deleteMember"));
         deleteItem.setOnAction(event -> deleteMember());
 
         ContextMenu contextMenu = new ContextMenu(deleteItem);
@@ -87,7 +88,7 @@ public class MembersController {
         Member selected = membersTable.getSelectionModel().getSelectedItem();
 
         if (selected == null) {
-            showWarning("Select a member first.");
+            showWarning(LanguageService.get("message.selectMember"));
             return;
         }
 
@@ -106,7 +107,7 @@ public class MembersController {
         Member selected = membersTable.getSelectionModel().getSelectedItem();
 
         if (selected == null) {
-            showWarning("Select a member first.");
+            showWarning(LanguageService.get("message.selectMember"));
             return;
         }
 
@@ -160,7 +161,7 @@ public class MembersController {
 
     private void showWarning(String message) {
         Alert alert = new Alert(Alert.AlertType.WARNING);
-        alert.setTitle("Members");
+        alert.setTitle(LanguageService.get("alert.members"));
         alert.setHeaderText(null);
         alert.setContentText(message);
         alert.showAndWait();

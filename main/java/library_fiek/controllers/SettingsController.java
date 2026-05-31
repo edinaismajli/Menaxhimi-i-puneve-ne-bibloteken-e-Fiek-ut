@@ -49,9 +49,9 @@ public class SettingsController {
         AccessibilityService.applyLargeText(settingsRoot, largeTextCheckBox.isSelected());
 
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Settings");
+        alert.setTitle(LanguageService.get("alert.settings"));
         alert.setHeaderText(null);
-        alert.setContentText("Settings saved.");
+        alert.setContentText(LanguageService.get("settings.saved"));
         alert.showAndWait();
     }
 }

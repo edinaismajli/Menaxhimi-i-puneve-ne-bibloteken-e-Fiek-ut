@@ -3,6 +3,7 @@ package library_fiek.controllers;
 import library_fiek.dto.BookDto;
 import library_fiek.models.Book;
 import library_fiek.services.BookService;
+import library_fiek.services.LanguageService;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -63,7 +64,7 @@ public class BooksController {
         quantityColumn.setCellValueFactory(new PropertyValueFactory<>("quantity"));
         availableColumn.setCellValueFactory(new PropertyValueFactory<>("availableQuantity"));
 
-        MenuItem deleteItem = new MenuItem("Delete selected book");
+        MenuItem deleteItem = new MenuItem(LanguageService.get("context.deleteBook"));
         deleteItem.setOnAction(event -> deleteBook());
 
         ContextMenu contextMenu = new ContextMenu(deleteItem);
@@ -89,7 +90,7 @@ public class BooksController {
         Book selected = booksTable.getSelectionModel().getSelectedItem();
 
         if (selected == null) {
-            showWarning("Select a book first.");
+            showWarning(LanguageService.get("message.selectBook"));
             return;
         }
 
@@ -108,7 +109,7 @@ public class BooksController {
         Book selected = booksTable.getSelectionModel().getSelectedItem();
 
         if (selected == null) {
-            showWarning("Select a book first.");
+            showWarning(LanguageService.get("message.selectBook"));
             return;
         }
 
@@ -151,7 +152,7 @@ public class BooksController {
         try {
             quantity = Integer.parseInt(quantityField.getText());
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("Quantity must be a number.");
+            throw new IllegalArgumentException(LanguageService.get("message.quantityNumber"));
         }
 
         return new BookDto(
@@ -173,7 +174,7 @@ public class BooksController {
 
     private void showWarning(String message) {
         Alert alert = new Alert(Alert.AlertType.WARNING);
-        alert.setTitle("Books");
+        alert.setTitle(LanguageService.get("alert.books"));
         alert.setHeaderText(null);
         alert.setContentText(message);
         alert.showAndWait();

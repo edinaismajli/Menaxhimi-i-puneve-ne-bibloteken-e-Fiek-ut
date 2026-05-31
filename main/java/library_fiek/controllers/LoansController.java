@@ -3,6 +3,7 @@ package library_fiek.controllers;
 import library_fiek.dto.LoanDto;
 import library_fiek.models.Loan;
 import library_fiek.services.LoanService;
+import library_fiek.services.LanguageService;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -54,7 +55,7 @@ public class LoansController {
         returnDateColumn.setCellValueFactory(new PropertyValueFactory<>("returnDate"));
         statusColumn.setCellValueFactory(new PropertyValueFactory<>("status"));
 
-        MenuItem returnItem = new MenuItem("Return selected loan");
+        MenuItem returnItem = new MenuItem(LanguageService.get("context.returnLoan"));
         returnItem.setOnAction(event -> returnLoan());
 
         ContextMenu contextMenu = new ContextMenu(returnItem);
@@ -80,7 +81,7 @@ public class LoansController {
         Loan selected = loansTable.getSelectionModel().getSelectedItem();
 
         if (selected == null) {
-            showWarning("Select a loan first.");
+            showWarning(LanguageService.get("message.selectLoan"));
             return;
         }
 
@@ -102,7 +103,7 @@ public class LoansController {
             bookId = Integer.parseInt(bookIdField.getText());
             memberId = Integer.parseInt(memberIdField.getText());
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("Book ID and Member ID must be numbers.");
+            throw new IllegalArgumentException(LanguageService.get("message.loanIdsNumber"));
         }
 
         return new LoanDto(
@@ -120,7 +121,7 @@ public class LoansController {
 
     private void showWarning(String message) {
         Alert alert = new Alert(Alert.AlertType.WARNING);
-        alert.setTitle("Loans");
+        alert.setTitle(LanguageService.get("alert.loans"));
         alert.setHeaderText(null);
         alert.setContentText(message);
         alert.showAndWait();
