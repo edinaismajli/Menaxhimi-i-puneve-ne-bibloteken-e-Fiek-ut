@@ -3,12 +3,14 @@ package library_fiek.controllers;
 import library_fiek.application.AppNavigator;
 import library_fiek.services.LanguageService;
 import library_fiek.utilities.SceneManager;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
 
 public class MainController {
     @FXML private BorderPane mainPane;
@@ -156,9 +158,18 @@ public class MainController {
         settingsSideButton.setText(LanguageService.get("settings.title"));
 
         statusPrefixLabel.setText(LanguageService.get("status.label"));
+        updateStageTitle();
     }
 
     private void setStatus(String text) {
         statusLabel.setText(text);
+    }
+
+    private void updateStageTitle() {
+        Platform.runLater(() -> {
+            if (mainPane.getScene() != null && mainPane.getScene().getWindow() instanceof Stage stage) {
+                stage.setTitle(LanguageService.get("app.title"));
+            }
+        });
     }
 }
